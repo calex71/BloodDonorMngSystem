@@ -11,9 +11,14 @@
     
     <!--This is the xaml code for the main login screen.-->
     <!--The user will be expected to provide a username and password to login-->
-    
+
     
     <Grid>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/bgred.jpg" Stretch="UniformToFill" Opacity="1"/>
+        </Grid.Background>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
@@ -33,11 +38,12 @@
             Grid.ColumnSpan="3" 
             HorizontalAlignment="Center" 
             FontSize="20" 
+            Foreground="White"
             Content="Welcome to the Blood Donor Management System. Please Login."/>
 
         <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,20,0,20">
-            <Label Content="Username" Margin="0,10,0,10"/>
-            <Label Content="Password" Margin="0,10"/>
+            <Label Content="Username" Margin="0,10,0,10" Foreground="White"/>
+            <Label Content="Password" Margin="0,10" Foreground="White"/>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="10,20,0,20">
@@ -85,7 +91,7 @@
 
         <Image 
             Grid.Row="1" Grid.Column="2" 
-            Source="Images/logo2.jpg" 
+            Source="Images/logo3.jpg" 
             Margin="20" 
             Grid.RowSpan="2" 
             MaxHeight="150" MaxWidth="160" 
