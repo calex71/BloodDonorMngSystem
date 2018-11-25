@@ -1,0 +1,93 @@
+﻿<Window x:Class="LogInScreen.Dashboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LogInScreen"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        WindowStyle="None"
+        
+        Title="Dashboard" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/backgroundblood.png" Stretch="UniformToFill" Opacity=".80"/>
+        </Grid.Background>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+            <Menu Name="mnuMainMenu" HorizontalAlignment="Stretch">
+                <MenuItem Header="_Search" Margin="10,0">
+
+                    <MenuItem Header="search for...">
+                        <MenuItem.Icon>
+                            <Image Source="images/search.png"/>
+                        </MenuItem.Icon>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Name="tbxSearchText" Width="150"/>
+                            <Button Name="btnSearch" Content="Search" Width="50" Margin="10,0,0,0"/>
+                        </StackPanel>
+                    </MenuItem>
+
+                    <Separator/>
+                    
+                    <MenuItem Header="_Reset">
+                        <MenuItem.Icon>
+                            <Image Source="images/reset.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+
+                <MenuItem Name="mnuAdminMenu"  Header="_Admin" Margin="10,0" Visibility="Visible">
+                    <MenuItem Header="_Manage users" Name="mnuManageUsersMenu">
+                        <MenuItem.Icon>
+                            <Image Source="images/user.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+
+                <MenuItem Name="mnuDonors" Header="_Donors" Margin="10,0" Visibility="Visible">
+                    <MenuItem Header="Ma_nage Donors" Name="mnuManageDonorsMenu">
+                        <MenuItem.Icon>
+                            <Image Source="images/user.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+
+
+                <MenuItem Name="mnuToolsMenu" Header="_Tools" Margin="10,0" Visibility="Visible">
+
+                    <MenuItem Name="mnuShowGroups" Header="_Show groups" IsCheckable="True" IsChecked="False" Checked="MnuShowGroups_Checked"/>
+                </MenuItem>
+
+                <MenuItem Header="A_pplication" Margin="10,0">
+                    <MenuItem Header="_Exit" Name="Exit" Click="Exit_Click">
+                        <MenuItem.Icon>
+                            <Image Source="images/exit.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <Separator/>
+                    
+                    
+                    <MenuItem Header="_Help" Name="Help" Click="Help_Click">
+                         <MenuItem.Icon>
+                             <Image Source="images/help.png"/>
+                         </MenuItem.Icon>
+                    </MenuItem>
+                    
+                </MenuItem>
+
+            </Menu>
+        </StackPanel>
+    </Grid>
+</Window>
