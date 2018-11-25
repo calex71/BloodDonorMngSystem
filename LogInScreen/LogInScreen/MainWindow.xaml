@@ -50,5 +50,8 @@
             <Button Name="btnClose" Content="Close" Height="26" Width="130" TabIndex="3" Margin="10,1" ToolTip="Click to close the application." Click="BtnClose_Click" />
             <Button Name="btnOK" Content="OK" Height="26" Width="130"  TabIndex="2" Margin="10,1" ToolTip="Click the OK buttion to log in."/>
         </StackPanel>
+
+        <Image Grid.Row="1" Grid.Column="2" Source="Images/logo2.jpg" Margin="20" Grid.RowSpan="2" MaxHeight="150" MaxWidth="160" HorizontalAlignment="Center"/>
+
     </Grid>
 </Window>
