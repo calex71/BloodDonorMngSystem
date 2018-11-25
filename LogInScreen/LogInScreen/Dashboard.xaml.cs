@@ -35,7 +35,7 @@ namespace LogInScreen
             MessageBox.Show("Menu option is checked");
         }
 
-        private void Help_Click(object sender, RoutedEventArgs e)
+        private void mnuHelp_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show($"For tecnical support and assistance please use the below contacts:" + Environment.NewLine + Environment.NewLine + "Phone: 555-9367" + Environment.NewLine + "Email: helpdesk@blood-donor.com");
                 

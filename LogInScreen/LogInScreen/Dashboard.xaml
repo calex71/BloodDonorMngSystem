@@ -10,10 +10,13 @@
         
         Title="Dashboard" Height="450" Width="800">
     <Grid>
+        
+        <!--Background Settings-->
         <Grid.Background>
             <ImageBrush ImageSource="Images/backgroundblood.png" Stretch="UniformToFill" Opacity=".80"/>
         </Grid.Background>
         
+        <!--Column and Row definitions -->
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
@@ -25,7 +28,11 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+            
+            <!--Main Menu containing all of the other menu items-->
             <Menu Name="mnuMainMenu" HorizontalAlignment="Stretch">
+                
+                <!--Search menu-->
                 <MenuItem Header="_Search" Margin="10,0">
 
                     <MenuItem Header="search for...">
@@ -47,6 +54,7 @@
                     </MenuItem>
                 </MenuItem>
 
+                <!--Admin Menu for managing users and accessing the logs-->
                 <MenuItem Name="mnuAdminMenu"  Header="_Admin" Margin="10,0" Visibility="Visible">
                     <MenuItem Header="_Manage users" Name="mnuManageUsersMenu">
                         <MenuItem.Icon>
@@ -54,7 +62,8 @@
                         </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
-
+                
+                <!--Donors Menu for managing donors-->
                 <MenuItem Name="mnuDonors" Header="_Donors" Margin="10,0" Visibility="Visible">
                     <MenuItem Header="Ma_nage Donors" Name="mnuManageDonorsMenu">
                         <MenuItem.Icon>
@@ -63,12 +72,13 @@
                     </MenuItem>
                 </MenuItem>
 
-
+                <!--Tools Menu-->
                 <MenuItem Name="mnuToolsMenu" Header="_Tools" Margin="10,0" Visibility="Visible">
 
                     <MenuItem Name="mnuShowGroups" Header="_Show groups" IsCheckable="True" IsChecked="False" Checked="MnuShowGroups_Checked"/>
                 </MenuItem>
 
+                <!--Application Menu contains exit and help options-->
                 <MenuItem Header="A_pplication" Margin="10,0">
                     <MenuItem Header="_Exit" Name="Exit" Click="Exit_Click">
                         <MenuItem.Icon>
@@ -79,7 +89,7 @@
                     <Separator/>
                     
                     
-                    <MenuItem Header="_Help" Name="Help" Click="Help_Click">
+                    <MenuItem Header="_Help" Name="mnuHelp" Click="mnuHelp_Click">
                          <MenuItem.Icon>
                              <Image Source="images/help.png"/>
                          </MenuItem.Icon>
@@ -89,5 +99,16 @@
 
             </Menu>
         </StackPanel>
+
+        <!--This frame will display the pages for users and donors-->
+        <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="5,10,5,3">
+            <Border BorderThickness="5" BorderBrush="Black" CornerRadius="15" Padding="4">
+                <Border.Effect>
+                    <DropShadowEffect Color="Black" Opacity=".90" ShadowDepth="4"/>
+                </Border.Effect>
+                <Frame Name="frmMain"/>
+            </Border>
+        </DockPanel>
+
     </Grid>
 </Window>
