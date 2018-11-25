@@ -84,7 +84,11 @@
                     Width="130"  
                     TabIndex="2" 
                     Margin="10,1" 
-                    ToolTip="Click the OK buttion to log in."/>
+                    ToolTip="Click the OK buttion to log in.">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
 
 
         </StackPanel>
