@@ -19,11 +19,13 @@ namespace LogInScreen
     /// </summary>
     public partial class Dashboard : Window
     {
+        
         public Dashboard()
         {
             InitializeComponent();
         }
 
+        //Click event for the exit button on the application menu.
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -35,11 +37,13 @@ namespace LogInScreen
             MessageBox.Show("Menu option is checked");
         }
 
+        //Click event for the application/help menu
         private void mnuHelp_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("For technical support and assistance please use the below contacts:" + Environment.NewLine + Environment.NewLine + "Phone: 555-9367" + Environment.NewLine + "Email: helpdesk@blood-donor.com", "Help Message", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
+        //click event for the Admin/manage users submenu
         private void MnuManageUsersMenu_Click(object sender, RoutedEventArgs e)
         {
             admin admin = new admin();
