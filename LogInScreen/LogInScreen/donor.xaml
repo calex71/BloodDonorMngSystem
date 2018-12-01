@@ -22,10 +22,11 @@
             <TabItem Header="Donors">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="50*"/>
-                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="65*"/>
+                        <RowDefinition Height="35*"/>
                     </Grid.RowDefinitions>
 
+                    <!--Listview containin blood donor details-->
                     <ListView Name="lstDonorList" Grid.Row="0" Grid.ColumnSpan="2">
                         <ListView.View>
                             <GridView>
@@ -112,22 +113,24 @@
                             </ContextMenu>
                         </ListView.ContextMenu>
                     </ListView>
-
+                    
+                    <!--Stack Panel with controls to modify, add and delete donors-->
                     <StackPanel Name="stkUserDetails" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="Visible">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
                             </Grid.ColumnDefinitions>
 
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="16*"/>
-                                <RowDefinition Height="16*"/>
-                                <RowDefinition Height="16*"/>
-                                <RowDefinition Height="16*"/>
-                                <RowDefinition Height="16*"/>
-                                <RowDefinition Height="16*"/>
-                                <RowDefinition Height="16*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
                             </Grid.RowDefinitions>
 
                             <Label Grid.Row="0" Grid.Column="0" Content="Forename" VerticalContentAlignment="Center" Background="White"/>
@@ -135,16 +138,16 @@
                             <Label Grid.Row="2" Grid.Column="0" Content="Street" VerticalContentAlignment="Center" Background="White"/>
                             <Label Grid.Row="3" Grid.Column="0" Content="Town" VerticalContentAlignment="Center" Background="White"/>
                             <Label Grid.Row="4" Grid.Column="0" Content="County" VerticalContentAlignment="Center" Background="White"/>
-                            <Label Grid.Row="5" Grid.Column="0" Content="Blood Group" VerticalContentAlignment="Center" Background="White"/>
-                            <Label Grid.Row="4" Grid.Column="0" Content="Donation Date" VerticalContentAlignment="Center" Background="White"/>
+                            <Label Grid.Row="5" Grid.Column="0" Content="Donation Date" VerticalContentAlignment="Center" Background="White"/>
+                            <Label Grid.Row="6" Grid.Column="0" Content="Blood Group" VerticalContentAlignment="Center" Background="White"/>
 
                             <TextBox Grid.Row="0" Grid.Column="1" Name="tbxDonorForename" ToolTip="Enter a forename" TabIndex="0" VerticalContentAlignment="Center"/>
                             <TextBox Grid.Row="1" Grid.Column="1" Name="tbxDonorSurname" ToolTip="Enter a surname" TabIndex="1" VerticalContentAlignment="Center"/>
                             <TextBox Grid.Row="2" Grid.Column="1" Name="tbxDonorStreet" ToolTip="Enter a street address" TabIndex="2" VerticalContentAlignment="Center"/>
                             <TextBox Grid.Row="3" Grid.Column="1" Name="tbxDonorTown" ToolTip="Enter a town" TabIndex="3" VerticalContentAlignment="Center"/>
                             <TextBox Grid.Row="4" Grid.Column="1" Name="tbxDonorCounty" ToolTip="Enter a county" TabIndex="4" VerticalContentAlignment="Center"/>
-
-                            <ComboBox Grid.Row="5" Grid.Column="1" Width="170"  TabIndex="5" VerticalContentAlignment="Center">
+                            <TextBox Grid.Row="5" Grid.Column="1" Name="tbxDonorDonationDate" ToolTip="Enter donation date" TabIndex="5" VerticalContentAlignment="Center"/>
+                            <ComboBox Grid.Row="6" Grid.Column="1" Width="170"  TabIndex="6" VerticalContentAlignment="Center">
                                 <ComboBoxItem Content="Please select"/>
                                 <ComboBoxItem Content="O-Positive"/>
                                 <ComboBoxItem Content="O-Negative"/>
@@ -156,7 +159,7 @@
                                 <ComboBoxItem Content="AB-Negative"/>
                             </ComboBox>
                             <Button 
-                                Grid.Row="6" 
+                                Grid.Row="8" 
                                 Grid.Column="0" 
                                 Name="btnCancel" 
                                 Content="Cancel" 
@@ -167,7 +170,7 @@
                                 TabIndex="7"
                                 Margin="10,0"/>
                             <Button 
-                                Grid.Row="6" 
+                                Grid.Row="7" 
                                 Grid.Column="1" 
                                 Name="btnOK" 
                                 Content="OK" 
@@ -177,14 +180,13 @@
                                 ToolTip="Click to add to database"
                                 TabIndex="6"
                                 Margin="10,0"/>
+                           
                         </Grid>
                     </StackPanel>
-
                 </Grid>
             </TabItem>
         </TabControl>
         
-        <!--Listview containin blood donor details-->
         
     </Grid>
 </Page>
