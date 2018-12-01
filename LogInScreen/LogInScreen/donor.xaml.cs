@@ -24,5 +24,11 @@ namespace LogInScreen
         {
             InitializeComponent();
         }
+
+        //Right click menu to add new donor and show the stack panel with the data entry controls
+        private void SubmnuAddNewDonor_Click(object sender, RoutedEventArgs e)
+        {
+            stkDonorDetails.Visibility = Visibility.Visible;
+        }
     }
 }

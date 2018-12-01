@@ -92,7 +92,7 @@
                         <ListView.ContextMenu>
                             <ContextMenu Name="mnuDonorListOverview" IsEnabled="True">
                                 <ContextMenu.Items>
-                                    <MenuItem Header="Add new donor" Name="submnuAddNewDonor" IsEnabled="True">
+                                    <MenuItem Header="Add new donor" Name="submnuAddNewDonor" IsEnabled="True" Click="SubmnuAddNewDonor_Click">
                                         <MenuItem.Icon>
                                             <Image Source="Images/add.png"/>
                                         </MenuItem.Icon>
@@ -115,7 +115,7 @@
                     </ListView>
                     
                     <!--Stack Panel with controls to modify, add and delete donors-->
-                    <StackPanel Name="stkUserDetails" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="Visible">
+                    <StackPanel Name="stkDonorDetails" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="Collapsed">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="3*"/>

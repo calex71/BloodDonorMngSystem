@@ -76,7 +76,7 @@
                         <ListView.ContextMenu>
                             <ContextMenu Name="mnuUserListOverview" IsEnabled="True">
                                 <ContextMenu.Items>
-                                    <MenuItem Header="Add new user" Name="submnuAddNewUser" IsEnabled="True">
+                                    <MenuItem Header="Add new user" Name="submnuAddNewUser" IsEnabled="True" Click="SubmnuAddNewUser_Click">
                                         <MenuItem.Icon>
                                             <Image Source="Images/add.png"/>
                                         </MenuItem.Icon>
@@ -100,7 +100,7 @@
 
                     <!--This stack panel contains the controls for entering and modifying user details-->
                     <!--Revist this, not happy with proportions -->
-                    <StackPanel Name="stkUserDetails" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="Visible">
+                    <StackPanel Name="stkUserDetails" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="Collapsed">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="30*"/>

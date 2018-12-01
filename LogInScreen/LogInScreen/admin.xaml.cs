@@ -24,5 +24,11 @@ namespace LogInScreen
         {
             InitializeComponent();
         }
+
+        //click event to show the user details stack panel to add a new user
+        private void SubmnuAddNewUser_Click(object sender, RoutedEventArgs e)
+        {
+            stkUserDetails.Visibility = Visibility.Visible;
+        }
     }
 }
