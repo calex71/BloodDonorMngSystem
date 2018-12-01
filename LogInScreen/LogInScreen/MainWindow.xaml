@@ -63,9 +63,7 @@
                 TabIndex="1" 
                 ToolTip="Please enter your password in this text box." 
                 VerticalContentAlignment="Center"/>
-            
             <Label Name="lblErrorMessage" Content=""/>
-            
         </StackPanel>
 
         
@@ -85,21 +83,15 @@
                     TabIndex="2" 
                     Margin="10,1" 
                     ToolTip="Click the OK buttion to log in.">
-                <Button.Effect>
-                    <DropShadowEffect/>
-                </Button.Effect>
             </Button>
-
-
         </StackPanel>
 
-        <Image 
+        <Image
             Grid.Row="1" Grid.Column="2" 
             Source="Images/logo3.jpg" 
             Margin="20" 
             Grid.RowSpan="2" 
             MaxHeight="150" MaxWidth="160" 
             HorizontalAlignment="Center"/>
-
     </Grid>
 </Window>

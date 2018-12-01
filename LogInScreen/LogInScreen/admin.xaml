@@ -1,0 +1,160 @@
+﻿<Page x:Class="LogInScreen.admin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LogInScreen"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="800"
+      Title="admin">
+
+    <Grid>
+        <TabControl Height="700" VerticalAlignment="Top">
+            <TabControl.Resources>
+                <Style TargetType="{x:Type TabItem}">
+                    <Setter Property="FontSize" Value="14"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="FontFamily" Value="Calibri"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="Padding" Value="10"/>
+                </Style>
+            </TabControl.Resources>
+            <TabItem Header="Users">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70*"/>
+                        <RowDefinition Height="30*"/>
+                    </Grid.RowDefinitions>
+
+                    <!--List view to display details of users-->
+                    <ListView Name="lstUserList" Grid.Row="0" Grid.ColumnSpan="2">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Username" Width="150">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Username}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Password" Width="150">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Password}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Surname" Width="150">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Surname}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Forename" Width="150">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Forename}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Access Level" Width="150">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding LevelID}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+
+                        <!--Context Menu to add, modify and delete users-->
+                        <ListView.ContextMenu>
+                            <ContextMenu Name="mnuUserListOverview" IsEnabled="True">
+                                <ContextMenu.Items>
+                                    <MenuItem Header="Add new user" Name="submnuAddNewUser" IsEnabled="True">
+                                        <MenuItem.Icon>
+                                            <Image Source="Images/add.png"/>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+
+                                    <MenuItem Header="Modify selected user" Name="submnuModifySelectedUser" IsEnabled="False">
+                                        <MenuItem.Icon>
+                                            <Image Source="Images/modify.png"/>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+
+                                    <MenuItem Header="Delete selected user" Name="submnuDeleteSelectedUser" IsEnabled="False">
+                                        <MenuItem.Icon>
+                                            <Image Source="Images/delete.png"/>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                </ContextMenu.Items>
+                            </ContextMenu>
+                        </ListView.ContextMenu>
+                    </ListView>
+
+                    <!--This stack panel contains the controls for entering and modifying user details-->
+                    <StackPanel Name="stkUserDetails" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="Visible">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30*"/>
+                                <ColumnDefinition Width="70*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="16*"/>
+                                <RowDefinition Height="16*"/>
+                                <RowDefinition Height="16*"/>
+                                <RowDefinition Height="16*"/>
+                                <RowDefinition Height="16*"/>
+                                <RowDefinition Height="16*"/>
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Row="0" Grid.Column="0" Content="Username" VerticalContentAlignment="Center"/>
+                            <Label Grid.Row="1" Grid.Column="0" Content="Password" VerticalContentAlignment="Center"/>
+                            <Label Grid.Row="2" Grid.Column="0" Content="Forename" VerticalContentAlignment="Center"/>
+                            <Label Grid.Row="3" Grid.Column="0" Content="Surname" VerticalContentAlignment="Center"/>
+                            <Label Grid.Row="4" Grid.Column="0" Content="Access Level" VerticalContentAlignment="Center"/>
+
+                            <TextBox Grid.Row="0" Grid.Column="1" Name="tbxUsername" ToolTip="Enter a username" TabIndex="0" VerticalContentAlignment="Center"/>
+                            <TextBox Grid.Row="1" Grid.Column="1" Name="tbxPassword" ToolTip="Enter a password" TabIndex="1" VerticalContentAlignment="Center"/>
+                            <TextBox Grid.Row="2" Grid.Column="1" Name="tbxForename" ToolTip="Enter a forename" TabIndex="2" VerticalContentAlignment="Center"/>
+                            <TextBox Grid.Row="3" Grid.Column="1" Name="tbxSurname" ToolTip="Enter a surname" TabIndex="3" VerticalContentAlignment="Center"/>
+                            <ComboBox Grid.Row="4" Grid.Column="1" Width="170"  TabIndex="4" VerticalContentAlignment="Center">
+                                <ComboBoxItem Content="Please select"/>
+                                <ComboBoxItem Content="Office Clerical"/>
+                                <ComboBoxItem Content="Clinic Staff"/>
+                                <ComboBoxItem Content="System Administrator"/>
+                            </ComboBox>
+                            <Button 
+                                Grid.Row="5" 
+                                Grid.Column="0" 
+                                Name="btnCancel" 
+                                Content="Cancel" 
+                                Width="150" 
+                                Height="26" 
+                                HorizontalAlignment="Right"
+                                ToolTip="Click to cancel."
+                                Margin="10,0"/>
+                            <Button 
+                                Grid.Row="5" 
+                                Grid.Column="1" 
+                                Name="btnOK" 
+                                Content="OK" 
+                                Width="150" 
+                                Height="26" 
+                                HorizontalAlignment="Right"
+                                ToolTip="Click to add to database"
+                                Margin="10,0"/>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Page>

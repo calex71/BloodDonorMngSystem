@@ -41,5 +41,11 @@ namespace LogInScreen
 
 
         }
+
+        private void MnuManageUsersMenu_Click(object sender, RoutedEventArgs e)
+        {
+            admin admin = new admin();
+            frmMain.Navigate(admin);
+        }
     }
 }

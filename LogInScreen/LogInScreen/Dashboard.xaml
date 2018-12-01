@@ -56,7 +56,7 @@
 
                 <!--Admin Menu for managing users and accessing the logs-->
                 <MenuItem Name="mnuAdminMenu"  Header="_Admin" Margin="10,0" Visibility="Visible">
-                    <MenuItem Header="_Manage users" Name="mnuManageUsersMenu">
+                    <MenuItem Header="_Manage users" Name="mnuManageUsersMenu" Click="MnuManageUsersMenu_Click">
                         <MenuItem.Icon>
                             <Image Source="images/user.png"/>
                         </MenuItem.Icon>
