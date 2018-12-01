@@ -99,6 +99,7 @@
                     </ListView>
 
                     <!--This stack panel contains the controls for entering and modifying user details-->
+                    <!--Revist this, not happy with proportions -->
                     <StackPanel Name="stkUserDetails" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="Visible">
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -153,6 +154,41 @@
                                 Margin="10,0"/>
                         </Grid>
                     </StackPanel>
+                </Grid>
+            </TabItem>
+  
+            <!--This the tab containing log details-->
+            <TabItem Header="Logs">
+                <Grid>
+                    <ListView Name="lstLogList" Grid.Row="0" Grid.ColumnSpan="2">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Catagory" Width="150">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Catagory}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Description" Width="auto">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Description}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn Header="Date" Width="auto">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Date}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
                 </Grid>
             </TabItem>
         </TabControl>
