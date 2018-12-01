@@ -65,7 +65,7 @@
                 
                 <!--Donors Menu for managing donors-->
                 <MenuItem Name="mnuDonors" Header="_Donors" Margin="10,0" Visibility="Visible">
-                    <MenuItem Header="Ma_nage Donors" Name="mnuManageDonorsMenu">
+                    <MenuItem Header="Ma_nage Donors" Name="mnuManageDonorsMenu" Click="MnuManageDonorsMenu_Click">
                         <MenuItem.Icon>
                             <Image Source="images/user.png"/>
                         </MenuItem.Icon>

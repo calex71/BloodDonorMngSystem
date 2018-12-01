@@ -38,14 +38,19 @@ namespace LogInScreen
         private void mnuHelp_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("For technical support and assistance please use the below contacts:" + Environment.NewLine + Environment.NewLine + "Phone: 555-9367" + Environment.NewLine + "Email: helpdesk@blood-donor.com", "Help Message", MessageBoxButton.OK, MessageBoxImage.Information);
-
-
         }
 
         private void MnuManageUsersMenu_Click(object sender, RoutedEventArgs e)
         {
             admin admin = new admin();
             frmMain.Navigate(admin);
+        }
+
+        //click event for the manage donors submenu
+        private void MnuManageDonorsMenu_Click(object sender, RoutedEventArgs e)
+        {
+            donor donor = new donor();
+            frmMain.Navigate(donor);
         }
     }
 }

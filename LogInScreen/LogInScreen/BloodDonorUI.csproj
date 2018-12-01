@@ -63,6 +63,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="donor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -76,6 +80,9 @@
     </Compile>
     <Compile Include="Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="donor.xaml.cs">
+      <DependentUpon>donor.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
