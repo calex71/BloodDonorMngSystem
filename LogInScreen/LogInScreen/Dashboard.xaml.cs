@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,10 @@ namespace LogInScreen
     /// </summary>
     public partial class Dashboard : Window
     {
-        
+        //This takes the user details from the login screen for user here in 
+        //the private void CheckUserAccess(User user) method for access control.
+        public User user = new User();
+
         public Dashboard()
         {
             InitializeComponent();
@@ -39,7 +43,7 @@ namespace LogInScreen
 
         //Click event for the application/help menu
         private void mnuHelp_Click(object sender, RoutedEventArgs e)
-        {
+        {        
             MessageBox.Show("For technical support and assistance please use the below contacts:" + Environment.NewLine + Environment.NewLine + "Phone: 555-9367" + Environment.NewLine + "Email: helpdesk@blood-donor.com", "Help Message", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
@@ -53,8 +57,24 @@ namespace LogInScreen
         //click event for the manage donors submenu
         private void MnuManageDonorsMenu_Click(object sender, RoutedEventArgs e)
         {
-            donor donor = new donor();
+            Donor donor = new Donor();
             frmMain.Navigate(donor);
+        }
+
+        //Access level check to determin what the user sees and has access to.
+        //Based on a check of their access LevelID.
+        private void CheckUserAccess(User user)
+        {        
+            if (user.LevelID == 3)
+            {
+                mnuAdminMenu.Visibility = Visibility.Visible;
+                mnuToolsMenu.Visibility = Visibility.Visible;               
+            }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            CheckUserAccess(user);
         }
     }
 }

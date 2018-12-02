@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowState="Maximized"
         WindowStyle="None"
-        
+        Loaded="Window_Loaded"
         Title="Dashboard" Height="450" Width="800">
     <Grid>
         
@@ -55,7 +55,7 @@
                 </MenuItem>
 
                 <!--Admin Menu for managing users and accessing the logs-->
-                <MenuItem Name="mnuAdminMenu"  Header="_Admin" Margin="10,0" Visibility="Visible">
+                <MenuItem Name="mnuAdminMenu"  Header="_Admin" Margin="10,0" Visibility="Collapsed">
                     <MenuItem Header="_Manage users" Name="mnuManageUsersMenu" Click="MnuManageUsersMenu_Click">
                         <MenuItem.Icon>
                             <Image Source="images/user.png"/>
@@ -73,7 +73,7 @@
                 </MenuItem>
 
                 <!--Tools Menu-->
-                <MenuItem Name="mnuToolsMenu" Header="_Tools" Margin="10,0" Visibility="Visible">
+                <MenuItem Name="mnuToolsMenu" Header="_Tools" Margin="10,0" Visibility="Collapsed">
 
                     <MenuItem Name="mnuShowGroups" Header="_Show groups" IsCheckable="True" IsChecked="False" Checked="MnuShowGroups_Checked"/>
                 </MenuItem>

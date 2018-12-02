@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,8 @@ namespace LogInScreen
     /// </summary>
     public partial class admin : Page
     {
+        
+
         public admin()
         {
             InitializeComponent();
@@ -30,5 +33,9 @@ namespace LogInScreen
         {
             stkUserDetails.Visibility = Visibility.Visible;
         }
+
+        
+
+        
     }
 }

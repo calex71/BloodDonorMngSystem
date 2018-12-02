@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:LogInScreen"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="800"
+      
       Title="admin">
 
     <Grid>

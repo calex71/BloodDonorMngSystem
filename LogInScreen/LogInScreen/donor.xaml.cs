@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,9 +19,9 @@ namespace LogInScreen
     /// <summary>
     /// Interaction logic for donor.xaml
     /// </summary>
-    public partial class donor : Page
-    {
-        public donor()
+    public partial class Donor : Page
+    {       
+        public Donor()
         {
             InitializeComponent();
         }
