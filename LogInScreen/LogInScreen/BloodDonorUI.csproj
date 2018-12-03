@@ -128,7 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\add.png" />
-    <Resource Include="Images\backgroundblood.png" />
+    <SplashScreen Include="Images\backgroundblood.png" />
     <Resource Include="Images\bloodlogo.png" />
     <Resource Include="Images\delete.png" />
     <Resource Include="Images\exit.png" />
