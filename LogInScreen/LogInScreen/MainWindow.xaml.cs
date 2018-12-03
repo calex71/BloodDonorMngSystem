@@ -27,6 +27,7 @@ namespace LogInScreen
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
         //Click event for the close button
@@ -42,14 +43,14 @@ namespace LogInScreen
         private void BtnOK_Click(object sender, RoutedEventArgs e)
         {
             string currentUser = tbxUsername.Text;
-            string currentPassword = tbxPassword.Password;
+            string currentPassword = tbxPassword.Password;           
             foreach (var user in db.Users)
             {
                 if (user.Username == currentUser && user.Password == currentPassword)
                 {
-                    Dashboard dashboard = new Dashboard();                   
-                    dashboard.user = user;                    
-                    dashboard.ShowDialog();
+                    Dashboard dashboard = new Dashboard();                    
+                    dashboard.user = user;                                        
+                    dashboard.ShowDialog();                    
                     this.Hide();                   
                 }
                 else

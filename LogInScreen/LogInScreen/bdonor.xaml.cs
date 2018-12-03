@@ -24,6 +24,7 @@ namespace LogInScreen
         BloodDBEntities db = new BloodDBEntities("metadata=res://*/BloodDonorModel.csdl|res://*/BloodDonorModel.ssdl|res://*/BloodDonorModel.msl;provider=System.Data.SqlClient;provider connection string='data source=192.168.1.200;initial catalog=BloodDB;persist security info=True;user id=blooddonor;password=password;MultipleActiveResultSets=True;App=EntityFramework'");
 
         List<Donor> donors = new List<Donor>();
+        
         public bdonor()
         {
             InitializeComponent();
@@ -40,8 +41,9 @@ namespace LogInScreen
             lstDonorList.ItemsSource = donors;
             foreach (var donor in db.Donors)
             {
-                donors.Add(donor);
+                donors.Add(donor);                
             }
+            
         }
     }
 
