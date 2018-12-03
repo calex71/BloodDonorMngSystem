@@ -54,12 +54,6 @@ namespace LogInScreen
             frmMain.Navigate(admin);
         }
 
-        //click event for the manage donors submenu
-        private void MnuManageDonorsMenu_Click(object sender, RoutedEventArgs e)
-        {
-            Donor donor = new Donor();           
-            frmMain.Navigate(donor);
-        }
 
         //Access level check to determin what the user sees and has access to.
         //Based on a check of their access LevelID.
@@ -75,6 +69,12 @@ namespace LogInScreen
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             CheckUserAccess(user);
+        }
+
+        private void MnuManageDonorsMenu_Click(object sender, RoutedEventArgs e)
+        {
+            bdonor bdonor = new bdonor();
+            frmMain.Navigate(bdonor);
         }
     }
 }
