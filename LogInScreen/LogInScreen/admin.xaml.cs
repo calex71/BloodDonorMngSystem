@@ -21,7 +21,10 @@ namespace LogInScreen
     /// </summary>
     public partial class admin : Page
     {
-        
+        BloodDBEntities db = new BloodDBEntities("metadata=res://*/BloodDonorModel.csdl|res://*/BloodDonorModel.ssdl|res://*/BloodDonorModel.msl;provider=System.Data.SqlClient;provider connection string='data source=192.168.1.200;initial catalog=BloodDB;persist security info=True;user id=blooddonor;password=password;MultipleActiveResultSets=True;App=EntityFramework'");
+
+
+        List<User> users = new List<User>();
 
         public admin()
         {
@@ -34,8 +37,13 @@ namespace LogInScreen
             stkUserDetails.Visibility = Visibility.Visible;
         }
 
-        
-
-        
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {           
+            lstUserList.ItemsSource = users;
+            foreach (var user in db.Users)
+            {
+                users.Add(user);                
+            }
+        }
     }
 }

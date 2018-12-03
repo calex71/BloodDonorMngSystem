@@ -69,11 +69,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Dashboard.xaml">
+    <Page Include="bdonor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="donor.xaml">
+    <Page Include="Dashboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -88,11 +88,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="bdonor.xaml.cs">
+      <DependentUpon>bdonor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="donor.xaml.cs">
-      <DependentUpon>donor.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -150,13 +150,13 @@
     <Resource Include="Images\reset.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DBLibrary\DBLibrary.csproj">
-      <Project>{7f91c8ab-9083-4ad0-9959-039179488673}</Project>
-      <Name>DBLibrary</Name>
-    </ProjectReference>
+    <Resource Include="Blood.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Blood.ico" />
+    <ProjectReference Include="..\DBLibrary\DBLibrary.csproj">
+      <Project>{33927057-c90d-4088-a3a8-11e1f68c2e89}</Project>
+      <Name>DBLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

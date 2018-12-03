@@ -1,5 +1,4 @@
-﻿using DBLibrary;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,11 +16,11 @@ using System.Windows.Shapes;
 namespace LogInScreen
 {
     /// <summary>
-    /// Interaction logic for donor.xaml
+    /// Interaction logic for bdonor.xaml
     /// </summary>
-    public partial class Donor : Page
-    {       
-        public Donor()
+    public partial class bdonor : Page
+    {
+        public bdonor()
         {
             InitializeComponent();
         }
@@ -32,4 +31,6 @@ namespace LogInScreen
             stkDonorDetails.Visibility = Visibility.Visible;
         }
     }
+
+    
 }

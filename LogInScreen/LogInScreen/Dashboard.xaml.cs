@@ -57,7 +57,7 @@ namespace LogInScreen
         //click event for the manage donors submenu
         private void MnuManageDonorsMenu_Click(object sender, RoutedEventArgs e)
         {
-            Donor donor = new Donor();
+            Donor donor = new Donor();           
             frmMain.Navigate(donor);
         }
 

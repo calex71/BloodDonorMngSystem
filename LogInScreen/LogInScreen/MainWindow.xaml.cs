@@ -24,7 +24,6 @@ namespace LogInScreen
     public partial class MainWindow : Window
     {
         BloodDBEntities db = new BloodDBEntities("metadata=res://*/BloodDonorModel.csdl|res://*/BloodDonorModel.ssdl|res://*/BloodDonorModel.msl;provider=System.Data.SqlClient;provider connection string='data source=192.168.1.200;initial catalog=BloodDB;persist security info=True;user id=blooddonor;password=password;MultipleActiveResultSets=True;App=EntityFramework'");
-
         public MainWindow()
         {
             InitializeComponent();
@@ -49,16 +48,15 @@ namespace LogInScreen
                 if (user.Username == currentUser && user.Password == currentPassword)
                 {
                     Dashboard dashboard = new Dashboard();                   
-                    dashboard.user = user;
+                    dashboard.user = user;                    
                     dashboard.ShowDialog();
-                    this.Hide();
+                    this.Hide();                   
                 }
                 else
                 {
                     lblErrorMessage.Content = "Please check your login details";
                 }
             }
-
         }
     }
 }
