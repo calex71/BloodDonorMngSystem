@@ -49,7 +49,7 @@ namespace LogInScreen
                 if (user.Username == currentUser && user.Password == currentPassword)
                 {
                     Dashboard dashboard = new Dashboard();                    
-                    dashboard.user = user;                                        
+                    dashboard.user = user;                    
                     dashboard.ShowDialog();                    
                     this.Hide();                   
                 }

@@ -37,13 +37,12 @@ namespace LogInScreen
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
+        {            
             lstDonorList.ItemsSource = donors;
             foreach (var donor in db.Donors)
             {
-                donors.Add(donor);                
-            }
-            
+                donors.Add(donor);                   
+            }                  
         }
     }
 

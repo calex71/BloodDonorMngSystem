@@ -63,7 +63,7 @@
                 TabIndex="1" 
                 ToolTip="Please enter your password in this text box." 
                 VerticalContentAlignment="Center"/>
-            <Label Name="lblErrorMessage" Content="" Foreground="White"/>
+            <Label Name="lblErrorMessage" Content="" HorizontalContentAlignment="Center" Foreground="White"/>
         </StackPanel>
 
         
