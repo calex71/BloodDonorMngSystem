@@ -26,6 +26,10 @@
                         <RowDefinition Height="70*"/>
                         <RowDefinition Height="30*"/>
                     </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50*"/>
+                        <ColumnDefinition Width="50*"/>
+                    </Grid.ColumnDefinitions>
 
                     <!--List view to display details of users-->
                     <ListView Name="lstUserList" Grid.Row="0" Grid.ColumnSpan="2">

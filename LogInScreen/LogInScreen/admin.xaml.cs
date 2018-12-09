@@ -25,6 +25,8 @@ namespace LogInScreen
 
 
         List<User> users = new List<User>();
+        List<Log> logs = new List<Log>();
+
 
         public admin()
         {
@@ -40,9 +42,14 @@ namespace LogInScreen
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {           
             lstUserList.ItemsSource = users;
+            lstLogList.ItemsSource = logs;
             foreach (var user in db.Users)
             {
                 users.Add(user);                
+            }
+            foreach (var log in db.Logs)
+            {
+                logs.Add(log);
             }
         }
     }

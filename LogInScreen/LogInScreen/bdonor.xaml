@@ -26,6 +26,11 @@
                         <RowDefinition Height="65*"/>
                         <RowDefinition Height="35*"/>
                     </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50*"/>
+                        <ColumnDefinition Width="50*"/>
+                    </Grid.ColumnDefinitions>
+                    
 
                     <!--Listview containin blood donor details-->
                     <ListView Name="lstDonorList" Grid.Row="0" Grid.ColumnSpan="2">
@@ -116,7 +121,7 @@
                     </ListView>
 
                     <!--Stack Panel with controls to modify, add and delete donors-->
-                    <StackPanel Name="stkDonorDetails" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="Collapsed">
+                    <StackPanel Name="stkDonorDetails" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Grid.ColumnSpan="2" Visibility="Collapsed">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="3*"/>
