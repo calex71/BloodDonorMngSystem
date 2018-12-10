@@ -32,7 +32,7 @@
                     </Grid.ColumnDefinitions>
 
                     <!--List view to display details of users-->
-                    <ListView Name="lstUserList" Grid.Row="0" Grid.ColumnSpan="2">
+                    <ListView Name="lstUserList" Grid.Row="0" Grid.ColumnSpan="2" SelectionChanged="LstUserList_SelectionChanged">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Username" Width="150">
@@ -87,13 +87,13 @@
                                         </MenuItem.Icon>
                                     </MenuItem>
 
-                                    <MenuItem Header="Modify selected user" Name="submnuModifySelectedUser" IsEnabled="False">
+                                    <MenuItem Header="Modify selected user" Name="submnuModifySelectedUser" IsEnabled="False" Click="SubmnuModifySelectedUser_Click">
                                         <MenuItem.Icon>
                                             <Image Source="Images/modify.png"/>
                                         </MenuItem.Icon>
                                     </MenuItem>
 
-                                    <MenuItem Header="Delete selected user" Name="submnuDeleteSelectedUser" IsEnabled="False">
+                                    <MenuItem Header="Delete selected user" Name="submnuDeleteSelectedUser" IsEnabled="False" Click="SubmnuDeleteSelectedUser_Click">
                                         <MenuItem.Icon>
                                             <Image Source="Images/delete.png"/>
                                         </MenuItem.Icon>
@@ -105,7 +105,7 @@
 
                     <!--This stack panel contains the controls for entering and modifying user details-->
                     <!--Revist this, not happy with proportions -->
-                    <StackPanel Name="stkUserDetails" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="Collapsed">
+                    <StackPanel Name="stkUserDetails" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Grid.ColumnSpan="2" Visibility="Collapsed">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="30*"/>
@@ -131,11 +131,10 @@
                             <TextBox Grid.Row="1" Grid.Column="1" Name="tbxPassword" ToolTip="Enter a password" TabIndex="1" VerticalContentAlignment="Center"/>
                             <TextBox Grid.Row="2" Grid.Column="1" Name="tbxForename" ToolTip="Enter a forename" TabIndex="2" VerticalContentAlignment="Center"/>
                             <TextBox Grid.Row="3" Grid.Column="1" Name="tbxSurname" ToolTip="Enter a surname" TabIndex="3" VerticalContentAlignment="Center"/>
-                            <ComboBox Grid.Row="4" Grid.Column="1" Width="170"  TabIndex="4" VerticalContentAlignment="Center">
+                            <ComboBox Grid.Row="4" Grid.Column="1" Width="170" Name="cboAccessLevel" TabIndex="4" VerticalContentAlignment="Center">
                                 <ComboBoxItem Content="Please select"/>
                                 <ComboBoxItem Content="Office Clerical"/>
                                 <ComboBoxItem Content="Clinic Staff"/>
-                                <ComboBoxItem Content="System Administrator"/>
                             </ComboBox>
                             <Button 
                                 Grid.Row="5" 
@@ -156,13 +155,14 @@
                                 Height="26" 
                                 HorizontalAlignment="Right"
                                 ToolTip="Click to add to database"
-                                Margin="10,0"/>
+                                Margin="10,0"
+                                Click="BtnOK_Click"/>
                         </Grid>
                     </StackPanel>
                 </Grid>
             </TabItem>
   
-            <!--This the tab containing log details-->
+            <!--This is the tab containing log details-->
             <TabItem Header="Logs">
                 <Grid>
                     <ListView Name="lstLogList" Grid.Row="0" Grid.ColumnSpan="2">
