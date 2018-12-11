@@ -44,7 +44,7 @@ namespace LogInScreen
         private void SubmnuAddNewDonor_Click(object sender, RoutedEventArgs e)
         {
             stkDonorDetails.Visibility = Visibility.Visible;
-            //dBOperation = DBOperation.Add;
+            dBOperation = DBOperation.Add;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -101,8 +101,6 @@ namespace LogInScreen
                     ClearDonorListDetails();
                     stkDonorDetails.Visibility = Visibility.Collapsed;
                 }
-
-
             }
         }
 
@@ -121,7 +119,7 @@ namespace LogInScreen
             {
                 donors.Add(donor);
             }
-            lstDonorList.Items.Refresh(); //currently this line crashes the system if you click on manage donors
+            //lstDonorList.Items.Refresh(); //currently this line crashes the system if you click on manage donors
         }
 
         private void ClearDonorListDetails()
@@ -157,8 +155,7 @@ namespace LogInScreen
                     dtpDonationDate.SelectedDate = selectedDonor.DonationDate;
                     cboBloodGroupID.SelectedIndex = selectedDonor.BloodGroupID;
                 }
-            }
-            
+            }           
         }
 
         private void SubmnuModifySelectedDonor_Click(object sender, RoutedEventArgs e)
