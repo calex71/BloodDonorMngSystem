@@ -136,17 +136,23 @@ namespace LogInScreen
             if (lstUserList.SelectedIndex > 0)
             {
                 selectedUser = users.ElementAt(lstUserList.SelectedIndex);
-               
-                    submnuModifySelectedUser.IsEnabled = true;
-                    submnuDeleteSelectedUser.IsEnabled = true;
+                submnuModifySelectedUser.IsEnabled = true;
+                submnuDeleteSelectedUser.IsEnabled = true;
+
+                if (dBOperation == DBOperation.Add)
+                {
+                    ClearUserDetails();
+                }
+
+                if (dBOperation == DBOperation.Modify)
+                {                    
                     tbxUsername.Text = selectedUser.Username;
                     tbxPassword.Text = selectedUser.Password;
                     tbxForename.Text = selectedUser.Forename;
                     tbxSurname.Text = selectedUser.Surname;
                     cboAccessLevel.SelectedIndex = selectedUser.LevelID;
-                
-            }
-            
+                }                          
+            }           
         }
 
         private void SubmnuModifySelectedUser_Click(object sender, RoutedEventArgs e)

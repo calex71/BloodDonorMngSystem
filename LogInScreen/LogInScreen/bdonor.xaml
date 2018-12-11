@@ -33,7 +33,7 @@
                     
 
                     <!--Listview containin blood donor details-->
-                    <ListView Name="lstDonorList" Grid.Row="0" Grid.ColumnSpan="2">
+                    <ListView Name="lstDonorList" Grid.Row="0" Grid.ColumnSpan="2" SelectionChanged="LstDonorList_SelectionChanged">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Forename" Width="150">
@@ -104,13 +104,13 @@
                                         </MenuItem.Icon>
                                     </MenuItem>
 
-                                    <MenuItem Header="Modify selected donor" Name="submnuModifySelectedDonor" IsEnabled="False">
+                                    <MenuItem Header="Modify selected donor" Name="submnuModifySelectedDonor" IsEnabled="False" Click="SubmnuModifySelectedDonor_Click">
                                         <MenuItem.Icon>
                                             <Image Source="Images/modify.png"/>
                                         </MenuItem.Icon>
                                     </MenuItem>
 
-                                    <MenuItem Header="Delete selected donor" Name="submnuDeleteSelectedDonor" IsEnabled="False">
+                                    <MenuItem Header="Delete selected donor" Name="submnuDeleteSelectedDonor" IsEnabled="False" Click="SubmnuDeleteSelectedDonor_Click">
                                         <MenuItem.Icon>
                                             <Image Source="Images/delete.png"/>
                                         </MenuItem.Icon>
@@ -152,9 +152,9 @@
                             <TextBox Grid.Row="2" Grid.Column="1" Name="tbxDonorStreet" ToolTip="Enter a street address" TabIndex="2" VerticalContentAlignment="Center"/>
                             <TextBox Grid.Row="3" Grid.Column="1" Name="tbxDonorTown" ToolTip="Enter a town" TabIndex="3" VerticalContentAlignment="Center"/>
                             <TextBox Grid.Row="4" Grid.Column="1" Name="tbxDonorCounty" ToolTip="Enter a county" TabIndex="4" VerticalContentAlignment="Center"/>
-                            <DatePicker Grid.Row="5" Grid.Column="1" Name="dpkDonationDate" DisplayDateStart="11/01/2018" DisplayDateEnd="11/30/2022" ToolTip="Select a date" TabIndex="5" VerticalContentAlignment="Center"/>
+                            <DatePicker Grid.Row="5" Grid.Column="1" Name="dtpDonationDate" DisplayDateStart="11/01/2018" DisplayDateEnd="11/30/2022" ToolTip="Select a date" TabIndex="5" VerticalContentAlignment="Center"/>
 
-                            <ComboBox Grid.Row="6" Grid.Column="1" Width="170"  TabIndex="6" VerticalContentAlignment="Center">
+                            <ComboBox Grid.Row="6" Grid.Column="1" Width="170"  TabIndex="6" VerticalContentAlignment="Center" Name="cboBloodGroupID">
                                 <ComboBoxItem Content="Please select"/>
                                 <ComboBoxItem Content="O-Positive"/>
                                 <ComboBoxItem Content="O-Negative"/>
@@ -186,7 +186,8 @@
                                 HorizontalAlignment="Right"
                                 ToolTip="Click to add to database"
                                 TabIndex="6"
-                                Margin="10,0"/>
+                                Margin="10,0"
+                                Click="BtnOK_Click"/>
 
                         </Grid>
                     </StackPanel>
