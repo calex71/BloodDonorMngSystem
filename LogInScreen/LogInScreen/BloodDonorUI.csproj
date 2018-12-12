@@ -153,9 +153,9 @@
     <Resource Include="Blood.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DBLibrary\DBLibrary.csproj">
-      <Project>{33927057-c90d-4088-a3a8-11e1f68c2e89}</Project>
-      <Name>DBLibrary</Name>
+    <ProjectReference Include="..\DBLibrary1\DBLibrary1.csproj">
+      <Project>{2d865c23-a579-482e-9a07-18673a98a959}</Project>
+      <Name>DBLibrary1</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,4 @@
-﻿using DBLibrary;
+﻿using DBLibrary1;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +21,7 @@ namespace LogInScreen
     /// </summary>
     public partial class bdonor : Page
     {
-        BloodDBEntities db = new BloodDBEntities("metadata=res://*/BloodDonorModel.csdl|res://*/BloodDonorModel.ssdl|res://*/BloodDonorModel.msl;provider=System.Data.SqlClient;provider connection string='data source=192.168.1.200;initial catalog=BloodDB;persist security info=True;user id=blooddonor;password=password;MultipleActiveResultSets=True;App=EntityFramework'");
+        BloodDBEntities db = new BloodDBEntities("metadata=res://*/BloodDonorModel1.csdl|res://*/BloodDonorModel1.ssdl|res://*/BloodDonorModel1.msl;provider=System.Data.SqlClient;provider connection string=';data source=192.168.1.200;initial catalog=BloodDB;persist security info=True;user id=blooddonor;password=password;MultipleActiveResultSets=True;App=EntityFramework'");
 
         List<Donor> donors = new List<Donor>();
         Donor selectedDonor = new Donor();
@@ -49,11 +49,8 @@ namespace LogInScreen
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            RefreshDonorList(); 
-            foreach (var donor in db.Donors)
-            {
-                donors.Add(donor);                   
-            }                  
+            RefreshDonorList();
+            lstDonorList.ItemsSource = donors;
         }
 
         private void BtnOK_Click(object sender, RoutedEventArgs e)
@@ -119,7 +116,7 @@ namespace LogInScreen
             {
                 donors.Add(donor);
             }
-            //lstDonorList.Items.Refresh(); //currently this line crashes the system if you click on manage donors
+            lstDonorList.Items.Refresh();            
         }
 
         private void ClearDonorListDetails()

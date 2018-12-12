@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.106
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloodDonorUI", "LogInScreen\BloodDonorUI.csproj", "{23FB3A74-985C-488F-BAF4-70DC51644EEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBLibrary", "DBLibrary\DBLibrary.csproj", "{33927057-C90D-4088-A3A8-11E1F68C2E89}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBLibrary1", "DBLibrary1\DBLibrary1.csproj", "{2D865C23-A579-482E-9A07-18673A98A959}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{23FB3A74-985C-488F-BAF4-70DC51644EEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23FB3A74-985C-488F-BAF4-70DC51644EEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23FB3A74-985C-488F-BAF4-70DC51644EEC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{33927057-C90D-4088-A3A8-11E1F68C2E89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{33927057-C90D-4088-A3A8-11E1F68C2E89}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{33927057-C90D-4088-A3A8-11E1F68C2E89}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{33927057-C90D-4088-A3A8-11E1F68C2E89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D865C23-A579-482E-9A07-18673A98A959}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D865C23-A579-482E-9A07-18673A98A959}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D865C23-A579-482E-9A07-18673A98A959}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D865C23-A579-482E-9A07-18673A98A959}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

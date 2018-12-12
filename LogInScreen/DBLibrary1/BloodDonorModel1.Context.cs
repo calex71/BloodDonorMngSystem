@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DBLibrary
+namespace DBLibrary1
 {
     using System;
     using System.Data.Entity;
@@ -15,15 +15,11 @@ namespace DBLibrary
     
     public partial class BloodDBEntities : DbContext
     {
-        public BloodDBEntities()
-            : base("name=BloodDBEntities")
+        public BloodDBEntities(string connectionString)
+            : base(connectionString)
         {
         }
-
-        public BloodDBEntities(string v)
-        {
-        }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
