@@ -1,6 +1,7 @@
 ﻿using DBLibrary1;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,14 +21,14 @@ namespace LogInScreen
     /// Interaction logic for MainWindow.xaml
     /// </summary>
 
-    
+
     public partial class MainWindow : Window
     {
         BloodDBEntities db = new BloodDBEntities("metadata=res://*/BloodDonorModel1.csdl|res://*/BloodDonorModel1.ssdl|res://*/BloodDonorModel1.msl;provider=System.Data.SqlClient;provider connection string='data source=192.168.1.200;initial catalog=BloodDB;persist security info=True;user id=blooddonor;password=password;MultipleActiveResultSets=True;App=EntityFramework'");
         public MainWindow()
         {
             InitializeComponent();
-            
+
         }
 
         //Click event for the close button
@@ -45,27 +46,31 @@ namespace LogInScreen
         {
             User validatedUser = new User();
             bool login = false;
+            bool validatedUserData = false;
             string currentUser = tbxUsername.Text;
-            string currentPassword = tbxPassword.Password;           
-            foreach (var user in db.Users)
+            string currentPassword = tbxPassword.Password;
+            validatedUserData = ValidateUserInput(currentUser, currentPassword);
+            if (validatedUserData)
             {
-                if (user.Username == currentUser && user.Password == currentPassword)
+                validatedUser = GetUserRecord(currentUser, currentPassword);
+                if (validatedUser.UserID > 0)
                 {
-                    login = true;
-                    validatedUser = user;
+                    CreateLogEntry("Login", "Logged in.", validatedUser.UserID, validatedUser.Username);
+                    Dashboard dashboard = new Dashboard();
+                    dashboard.user = validatedUser;
+                    dashboard.Owner = this; //not sure I need this line?
+                    dashboard.ShowDialog();
+                    this.Hide();
                 }
                 else
                 {
-                    lblErrorMessage.Content = "Please check your login details";
-                }
+                    MessageBox.Show("Login datials do not exist, Please check and try again.", "Login", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                }                
+
             }
-            if (login)
+            else
             {
-                CreateLogEntry("Login", "Logged in.", validatedUser.UserID, validatedUser.Username);
-                Dashboard dashboard = new Dashboard();
-                dashboard.user = validatedUser;
-                dashboard.ShowDialog();
-                this.Hide();
+                MessageBox.Show("Problem with username or password, check login details and try again", "Login", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
 
@@ -86,6 +91,49 @@ namespace LogInScreen
         {
             db.Entry(log).State = System.Data.Entity.EntityState.Added;
             db.SaveChanges();
+        }
+
+
+        //Method to make sure a username and password are not blank and do not exceed 30 characters
+        private bool ValidateUserInput(string username, string password)
+        {
+            bool validated = true;
+            if (username.Length == 0 || username.Length > 30)
+            {
+                validated = false;
+            }
+            foreach (char ch in username)
+            {
+                if (ch >= '0' && ch <= 9)
+                {
+                    validated = false;
+                }
+            }
+
+            if (password.Length == 0 || password.Length > 30)
+            {
+                validated = false;
+            }
+            return validated;
+        }
+
+        private User GetUserRecord(string username, string password)
+        {
+            User validatedUser = new User();
+            try
+            {              
+                foreach (var user in db.Users.Where(t => t.Username == username && t.Password == password))
+                {
+                    validatedUser = user;
+                }
+            }
+            catch(EntityException ex)
+            {
+                MessageBox.Show("No connection to the SQL server, Closing application" + ex.InnerException, "Connect to SQL server", MessageBoxButton.OK, MessageBoxImage.Error);
+                this.Close();
+                Environment.Exit(0);                
+            }            
+            return validatedUser;
         }
     }
 }
