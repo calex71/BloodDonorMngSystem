@@ -67,10 +67,11 @@
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
 
+                                <!--This taken from the Access Level table-->
                                 <GridViewColumn Header="Access Level" Width="150">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding LevelID}"/>
+                                            <TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Path=AccessLevel.JobRole}"/>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
