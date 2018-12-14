@@ -55,7 +55,14 @@ namespace LogInScreen
 
         private void BtnOK_Click(object sender, RoutedEventArgs e)
         {
-            if (dBOperation == DBOperation.Add)
+            bool donorDataValidated = ValidateDonorInput();
+            if (!donorDataValidated)
+            {
+                MessageBox.Show("Problem with data entered!!!!!! Please check the following :" + Environment.NewLine + "There are no empty fields." + Environment.NewLine + "Fields do not exceed 30 characters and street does not exceed 50." + Environment.NewLine + "Blood Group has been selected from the combo box.", "Invalid data", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            }
+
+            if (dBOperation == DBOperation.Add && donorDataValidated)
             {
                 Donor donor = new Donor();
                 donor.Forename = tbxDonorForename.Text.Trim();
@@ -78,7 +85,7 @@ namespace LogInScreen
                     MessageBox.Show("Donor record did not save", "Save to database", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             }
-            if (dBOperation == DBOperation.Modify)
+            if (dBOperation == DBOperation.Modify && donorDataValidated)
             {
                 foreach (var donor in db.Donors.Where(t => t.DonorID == selectedDonor.DonorID))
                 {
@@ -178,6 +185,43 @@ namespace LogInScreen
                 RefreshDonorList();
                 ClearDonorListDetails();
             }            
+        }
+
+        public bool ValidateDonorInput()
+        {
+            bool validated = true;
+
+            if (tbxDonorCounty.Text.Length == 0 || tbxDonorCounty.Text.Length > 30)
+            {
+                validated = false;
+            }
+
+            if (tbxDonorForename.Text.Length == 0 || tbxDonorForename.Text.Length > 30)
+            {
+                validated = false;
+            }
+
+            if (tbxDonorStreet.Text.Length == 0 || tbxDonorStreet.Text.Length > 50)
+            {
+                validated = false;
+            }
+
+            if (tbxDonorSurname.Text.Length == 0 || tbxDonorSurname.Text.Length > 30)
+            {
+                validated = false;
+            }
+
+            if (cboBloodGroupID.SelectedIndex < 1 || cboBloodGroupID.SelectedIndex > 8)
+            {
+                validated = false;
+            }
+            return validated;
+        }
+
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            ClearDonorListDetails();
+            stkDonorDetails.Visibility = Visibility.Collapsed;
         }
     }
 

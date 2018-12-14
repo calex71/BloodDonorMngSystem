@@ -52,7 +52,7 @@ namespace LogInScreen
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             RefreshUserList();
-            lstLogList.ItemsSource = logs;            
+            lstLogList.ItemsSource = logs;
             foreach (var log in db.Logs)
             {
                 logs.Add(log);
@@ -61,8 +61,14 @@ namespace LogInScreen
 
         private void BtnOK_Click(object sender, RoutedEventArgs e)
         {
-            if (dBOperation == DBOperation.Add)
+            bool inputValidated = ValidateUserInput();
+            if (!inputValidated)
             {
+                MessageBox.Show("Problem with data entered!!!!!! Please check the following :" + Environment.NewLine + "There are no empty fields." + Environment.NewLine + "Fields do not exceed 30 characters." + Environment.NewLine + "Access level has been selected.", "Invalid data", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+
+            if (dBOperation == DBOperation.Add && inputValidated)
+            {              
                 User user = new User();
                 user.Username = tbxUsername.Text.Trim();
                 user.Password = tbxPassword.Text.Trim();
@@ -82,7 +88,7 @@ namespace LogInScreen
                     MessageBox.Show("User record has not been saved", "Save User Record", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-            if (dBOperation == DBOperation.Modify)
+            if (dBOperation == DBOperation.Modify && inputValidated)
             {
                 foreach (var user in db.Users.Where(t => t.UserID == selectedUser.UserID))
                 {
@@ -145,18 +151,18 @@ namespace LogInScreen
                 }
 
                 if (dBOperation == DBOperation.Modify)
-                {                    
+                {
                     tbxUsername.Text = selectedUser.Username;
                     tbxPassword.Text = selectedUser.Password;
                     tbxForename.Text = selectedUser.Forename;
                     tbxSurname.Text = selectedUser.Surname;
                     cboAccessLevel.SelectedIndex = selectedUser.LevelID;
-                }                          
-            }           
+                }
+            }
         }
 
         private void SubmnuModifySelectedUser_Click(object sender, RoutedEventArgs e)
-        {         
+        {
             stkUserDetails.Visibility = Visibility.Visible;
             dBOperation = DBOperation.Modify;
         }
@@ -176,6 +182,55 @@ namespace LogInScreen
             {
                 MessageBox.Show("Problem deleting user record", "Delete User Record", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        /// <summary>
+        /// Method to check if what the user enters when adding or modifying a user 
+        /// is going to be what the data base expects in terms of max length it will accept.
+        /// </summary>
+        /// <returns>Returns a bool value of true if the data entered meets the rules of the method</returns>
+        public bool ValidateUserInput()
+        {
+            bool validated = true;
+
+            if (tbxUsername.Text.Length == 0 || tbxUsername.Text.Length > 30)
+            {
+                validated = false;
+            }
+            foreach (char ch in tbxUsername.Text)
+            {
+                if (ch >= '0' && ch <= 9)
+                {
+                    validated = false;
+                }
+            }
+
+            if (tbxPassword.Text.Length == 0 || tbxPassword.Text.Length > 30)
+            {
+                validated = false;
+            }
+
+            if (tbxForename.Text.Length == 0 || tbxForename.Text.Length > 30)
+            {
+                validated = false;
+            }
+
+            if (tbxSurname.Text.Length == 0 || tbxSurname.Text.Length > 30)
+            {
+                validated = false;
+            }
+
+            if (cboAccessLevel.SelectedIndex < 1 || cboAccessLevel.SelectedIndex > 2)
+            {
+                validated = false;
+            }
+            return validated;
+        }
+
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            ClearUserDetails();
+            stkUserDetails.Visibility = Visibility.Collapsed;
         }
     }
 }

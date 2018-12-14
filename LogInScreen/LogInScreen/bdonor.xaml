@@ -176,7 +176,8 @@
                                 HorizontalAlignment="Right"
                                 ToolTip="Click to cancel."
                                 TabIndex="7"
-                                Margin="10,0"/>
+                                Margin="10,0"
+                                Click="BtnCancel_Click"/>
                             <Button 
                                 Grid.Row="7" 
                                 Grid.Column="1" 
