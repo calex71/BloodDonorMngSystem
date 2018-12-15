@@ -34,12 +34,7 @@ namespace LogInScreen
         {
             this.Close();
             Environment.Exit(0);
-        }
-
-        private void MnuShowGroups_Checked(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Menu option is checked");
-        }
+        }     
 
         //Click event for the application/help menu
         private void mnuHelp_Click(object sender, RoutedEventArgs e)
@@ -58,11 +53,17 @@ namespace LogInScreen
         //Access level check to determin what the user sees and has access to.
         //Based on a check of their access LevelID.
         private void CheckUserAccess(User user)
-        {        
+        {
+
+            if (user.LevelID == 1)
+            {
+                mnuToolsMenu.Visibility = Visibility.Visible;
+            }
             if (user.LevelID == 3)
             {
                 mnuAdminMenu.Visibility = Visibility.Visible;
-                mnuToolsMenu.Visibility = Visibility.Visible;               
+                mnuToolsMenu.Visibility = Visibility.Visible;
+                mnuPingTest.Visibility = Visibility.Visible;
             }
         }
 
@@ -75,6 +76,12 @@ namespace LogInScreen
         {
             bdonor bdonor = new bdonor();
             frmMain.Navigate(bdonor);
+        }
+
+        private void MnuPingTest_Click(object sender, RoutedEventArgs e)
+        {
+            ping ping = new ping();
+            ping.Show();                       
         }
     }
 }

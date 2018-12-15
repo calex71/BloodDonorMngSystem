@@ -223,6 +223,8 @@ namespace LogInScreen
             ClearDonorListDetails();
             stkDonorDetails.Visibility = Visibility.Collapsed;
         }
+
+        
     }
 
     

@@ -74,8 +74,10 @@
 
                 <!--Tools Menu-->
                 <MenuItem Name="mnuToolsMenu" Header="_Tools" Margin="10,0" Visibility="Collapsed">
-
-                    <MenuItem Name="mnuShowGroups" Header="_Show groups" IsCheckable="True" IsChecked="False" Checked="MnuShowGroups_Checked"/>
+                    <MenuItem Name="mnuPingTest" Header="_Ping Test" Visibility="Collapsed" Click="MnuPingTest_Click"/>
+                    <MenuItem.Icon>
+                        <Image Source="images/ping.png"/>
+                    </MenuItem.Icon>
                 </MenuItem>
 
                 <!--Application Menu contains exit and help options-->
