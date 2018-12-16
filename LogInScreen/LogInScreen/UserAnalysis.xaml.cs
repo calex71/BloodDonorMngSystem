@@ -96,7 +96,84 @@ namespace LogInScreen
 
         private void BtnAnalyse_Click(object sender, RoutedEventArgs e)
         {
+            int recordCount = 0;
+            string output = "";
+            tbkAnalysisOutput.Text = "";
 
+            if (analysisType == AnalysisType.Summary && tableSelection == TableSelection.User)
+            {
+                int level1CountSummary = 0;
+                int level2CountSummary = 0;
+                int level3CountSummary = 0;
+                foreach (var item in userList)
+                {
+                    recordCount++;
+                    output = output + Environment.NewLine + $"Record {recordCount} is for the user whose " +
+                        $"name is {item.Forename} {item.Surname}, with the username {item.Username}. This " +
+                        $"user has access level {item.LevelID} which is {item.AccessLevel.JobRole} job role" + Environment.NewLine;
+
+                    if (item.LevelID  == 1)
+                    {
+                        level1CountSummary++;
+                    }
+                    if (item.LevelID == 2)
+                    {
+                        level2CountSummary++;
+                    }
+                    if (item.LevelID == 3)
+                    {
+                        level3CountSummary++;
+                    }
+                }
+                output = output + Environment.NewLine + $"Total users with level 1 is {level1CountSummary}." + Environment.NewLine;
+                output = output + Environment.NewLine + $"Total users with level 2 is {level2CountSummary}." + Environment.NewLine;
+                output = output + Environment.NewLine + $"Total users with level 3 is {level3CountSummary}." + Environment.NewLine;
+                output = output + Environment.NewLine + $"Total number of records = {recordCount}";
+
+                tbkAnalysisOutput.Text = output;
+            }
+            if (analysisType == AnalysisType.Summary && tableSelection == TableSelection.Log)
+            {
+                foreach (var item in logList)
+                {
+                    recordCount++;
+                    output = output + Environment.NewLine + $"Record {recordCount} is for log created by {item.User.Forename} {item.User.Surname} with the u" +
+                        $"ser ID is {item.User.UserID}. Log was created on {item.Date}. This log was registered for the {item.Catagory} event." + Environment.NewLine;
+                }
+                output = output + Environment.NewLine + $"Total log entries = {recordCount}" + Environment.NewLine;
+                tbkAnalysisOutput.Text = output;
+            }
+
+            if (analysisType == AnalysisType.Statistics && tableSelection == TableSelection.User)
+            {
+                int level1CountSummary = 0;
+                int level2CountSummary = 0;
+                int level3CountSummary = 0;
+                foreach (var item in userList)
+                {
+                    recordCount++;
+                    if (item.LevelID == 1)
+                    {
+                        level1CountSummary++;
+                    }
+                    if (item.LevelID == 2)
+                    {
+                        level2CountSummary++;
+                    }
+                    if (item.LevelID == 3)
+                    {
+                        level3CountSummary++;
+                    }                   
+                }
+                output = output + Environment.NewLine + $"Total users with level 1, Office Clerical access is {level1CountSummary}." + Environment.NewLine;
+                output = output + Environment.NewLine + $"Total users with level 2, Clinic Staff access is {level2CountSummary}." + Environment.NewLine;
+                output = output + Environment.NewLine + $"Total users with level 3, System Administrator access is {level3CountSummary}." + Environment.NewLine;
+                output = output + Environment.NewLine + $"Total number of records = {recordCount}";
+
+                tbkAnalysisOutput.Text = output;
+            }
+
+            // Add another for logs statistics once I've done more log categories
         }
     }
 }

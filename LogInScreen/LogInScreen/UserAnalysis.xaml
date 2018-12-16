@@ -9,17 +9,17 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="7*"/>
-            <RowDefinition Height="3*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="4*"/>
         </Grid.RowDefinitions>
                 
         <!--Row 0-->
         <ScrollViewer Grid.Row="0" Margin="5">
-            <TextBlock Name="tbkAnalysisOutput" TextWrapping="Wrap" FontSize="14" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+            <TextBlock Name="tbkAnalysisOutput" TextWrapping="Wrap" FontSize="14" ScrollViewer.VerticalScrollBarVisibility="Auto" Background="White"/>
         </ScrollViewer>
         
         <!--Row 1-->
-        <StackPanel Grid.Row="1" VerticalAlignment="Center">
+        <StackPanel Grid.Row="1" VerticalAlignment="Top">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
@@ -32,18 +32,18 @@
                 </Grid.ColumnDefinitions>
 
                 <!--Row 0 (Stack Panel)-->
-                <Label Grid.Row="0"  Grid.Column="0" Content="Please pick an analysis type." HorizontalAlignment="Center" FontSize="14"/>
-                <Label Grid.Row="0"  Grid.Column="1" Content="Please pick a database table." HorizontalAlignment="Center" FontSize="14"/>
+                <Label Grid.Row="0"  Grid.Column="0" Content="Please pick an analysis type." HorizontalAlignment="Center" FontSize="14" Background="White" Width="190" Margin="5"/>
+                <Label Grid.Row="0"  Grid.Column="1" Content="Please pick a database table." HorizontalAlignment="Center" FontSize="14" Background="White" Width="190" Margin="5"/>
 
                 <!--Row 1 (Stack Panel)-->
-                <ComboBox Name="cboAnalysisType" Grid.Row="1" Grid.Column="0" Width="150" Height="26" Margin="5" VerticalContentAlignment="Center" SelectedIndex="0" SelectionChanged="CboAnalysisType_SelectionChanged">
+                <ComboBox Name="cboAnalysisType" Grid.Row="1" Grid.Column="0" Width="190" Height="26" Margin="5" VerticalContentAlignment="Center" SelectedIndex="0" SelectionChanged="CboAnalysisType_SelectionChanged">
                     <ComboBoxItem Content="Please select.."/>
                     <ComboBoxItem Content="Summary"/>
                     <ComboBoxItem Content="Count"/>
                     <ComboBoxItem Content="Statistics"/>
                 </ComboBox>
 
-                <ComboBox Name="cboChooseTable" Grid.Row="1" Grid.Column="1" Width="150" Height="26" Margin="5" VerticalContentAlignment="Center" SelectedIndex="0" SelectionChanged="CboChooseTable_SelectionChanged">
+                <ComboBox Name="cboChooseTable" Grid.Row="1" Grid.Column="1" Width="190" Height="26" Margin="5" VerticalContentAlignment="Center" SelectedIndex="0" SelectionChanged="CboChooseTable_SelectionChanged">
                     <ComboBoxItem Content="Please select.."/>
                     <ComboBoxItem Content="User"/>
                     <ComboBoxItem Content="Log"/>

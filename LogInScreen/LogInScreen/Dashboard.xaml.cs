@@ -84,5 +84,11 @@ namespace LogInScreen
             ping ping = new ping();
             ping.Show();                       
         }
+
+        private void MnuUserAnalysis_Click(object sender, RoutedEventArgs e)
+        {
+            UserAnalysis userAnalysis = new UserAnalysis();
+            frmMain.Navigate(userAnalysis);
+        }
     }
 }

@@ -83,7 +83,7 @@
 
                     <Separator/>
 
-                    <MenuItem Name="mnuUserAnalysis" Header="_User Anylysis" Visibility="Collapsed">
+                    <MenuItem Name="mnuUserAnalysis" Header="_User Anylysis" Visibility="Collapsed" Click="MnuUserAnalysis_Click">
                         <MenuItem.Icon>
                             <Image Source="images/search.png"/>
                         </MenuItem.Icon>
