@@ -64,6 +64,7 @@ namespace LogInScreen
                 mnuAdminMenu.Visibility = Visibility.Visible;
                 mnuToolsMenu.Visibility = Visibility.Visible;
                 mnuPingTest.Visibility = Visibility.Visible;
+                mnuUserAnalysis.Visibility = Visibility.Visible;
             }
         }
 
