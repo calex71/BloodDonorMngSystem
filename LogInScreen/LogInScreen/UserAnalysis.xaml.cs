@@ -174,6 +174,7 @@ namespace LogInScreen
             }
 
             // Add another for logs statistics once I've done more log categories
+            //Remove count from this and the xmal code as it's not required
         }
     }
 }

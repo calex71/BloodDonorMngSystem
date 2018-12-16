@@ -75,7 +75,7 @@
                 <!--Tools Menu-->
                 <MenuItem Name="mnuToolsMenu" Header="_Tools" Margin="10,0" Visibility="Collapsed">
                     
-                    <MenuItem Name="mnuPingTest" Header="_Ping Test" Visibility="Collapsed" Click="MnuPingTest_Click">
+                    <MenuItem Name="mnuPingTest" Header="_Test Server Connection" Visibility="Collapsed" Click="MnuPingTest_Click">
                         <MenuItem.Icon>
                             <Image Source="images/ping.png"/>
                         </MenuItem.Icon>
@@ -87,6 +87,12 @@
                         <MenuItem.Icon>
                             <Image Source="images/search.png"/>
                         </MenuItem.Icon>
+                    </MenuItem>
+
+                    <Separator/>
+
+                    <MenuItem Name="mnuDonorAnalysis">
+                        
                     </MenuItem>
 
 
