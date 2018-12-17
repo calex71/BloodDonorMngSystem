@@ -58,7 +58,7 @@ namespace LogInScreen
                     CreateLogEntry("Login", "Logged in.", validatedUser.UserID, validatedUser.Username);
                     Dashboard dashboard = new Dashboard();
                     dashboard.user = validatedUser;
-                    dashboard.Owner = this; //not sure I need this line?
+                    dashboard.Owner = this; //not sure I need this line?                                      
                     dashboard.ShowDialog();
                     this.Hide();
                 }

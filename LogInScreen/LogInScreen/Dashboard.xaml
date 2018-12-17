@@ -91,7 +91,7 @@
 
                     <Separator/>
 
-                    <MenuItem Name="mnuDonorAnalysis">
+                    <MenuItem Name="mnuDonorAnalysis" Header="_Donor Analysis" Visibility="Visible">
                         
                     </MenuItem>
 

@@ -32,7 +32,7 @@
                     </Grid.ColumnDefinitions>
 
                     <!--List view to display details of users-->
-                    <ListView Name="lstUserList" Grid.Row="0" Grid.ColumnSpan="2" SelectionChanged="LstUserList_SelectionChanged">
+                    <ListView Name="lstUserList" Grid.Row="0" Grid.ColumnSpan="2" SelectionChanged="LstUserList_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Visible">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Username" Width="150">
