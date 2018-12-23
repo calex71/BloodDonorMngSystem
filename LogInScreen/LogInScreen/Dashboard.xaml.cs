@@ -20,12 +20,14 @@ namespace LogInScreen
     /// </summary>
     public partial class Dashboard : Window
     {
+        BloodDBEntities db = new BloodDBEntities("metadata=res://*/BloodDonorModel1.csdl|res://*/BloodDonorModel1.ssdl|res://*/BloodDonorModel1.msl;provider=System.Data.SqlClient;provider connection string=';data source=192.168.1.200;initial catalog=BloodDB;persist security info=True;user id=blooddonor;password=password;MultipleActiveResultSets=True;App=EntityFramework'");
+
         //This takes the user details from the login screen for user here in 
         //the private void CheckUserAccess(User user) method for access control.
         public User user = new User();
 
         public Dashboard()
-        {
+        {   
             InitializeComponent();
         }
 
@@ -71,6 +73,7 @@ namespace LogInScreen
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             CheckUserAccess(user);
+            
         }
 
         private void MnuManageDonorsMenu_Click(object sender, RoutedEventArgs e)
@@ -89,6 +92,12 @@ namespace LogInScreen
         {
             UserAnalysis userAnalysis = new UserAnalysis();
             frmMain.Navigate(userAnalysis);
+        }
+
+        private void MnuDonorAnalysis_Click(object sender, RoutedEventArgs e)
+        {
+            DonerAnalysis donerAnalysis = new DonerAnalysis();
+            frmMain.Navigate(donerAnalysis);
         }
     }
 }

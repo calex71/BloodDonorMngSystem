@@ -22,11 +22,14 @@ namespace LogInScreen
     public partial class admin : Page
     {
         BloodDBEntities db = new BloodDBEntities("metadata=res://*/BloodDonorModel1.csdl|res://*/BloodDonorModel1.ssdl|res://*/BloodDonorModel1.msl;provider=System.Data.SqlClient;provider connection string='data source=192.168.1.200;initial catalog=BloodDB;persist security info=True;user id=blooddonor;password=password;MultipleActiveResultSets=True;App=EntityFramework'");
-
-        public User user = new User();
+       
         List<User> users = new List<User>();
         List<Log> logs = new List<Log>();
         User selectedUser = new User();
+
+
+
+
 
         enum DBOperation
         {
@@ -51,6 +54,7 @@ namespace LogInScreen
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            admin admin = new admin();
             RefreshUserList();
             lstLogList.ItemsSource = logs;
             foreach (var log in db.Logs)
@@ -68,7 +72,7 @@ namespace LogInScreen
             }
 
             if (dBOperation == DBOperation.Add && inputValidated)
-            {              
+            {
                 User user = new User();
                 user.Username = tbxUsername.Text.Trim();
                 user.Password = tbxPassword.Text.Trim();
@@ -77,8 +81,7 @@ namespace LogInScreen
                 user.LevelID = cboAccessLevel.SelectedIndex;
                 int saveSuccess = SaveUser(user);
                 if (saveSuccess == 1)
-                {
-                    CreateLogEntry("Add User", "New user added", , user.Username); //this doesn't work as intended, it uses the userID for the added user
+                {                   
                     MessageBox.Show("User record saved successfully", "Save User Record", MessageBoxButton.OK, MessageBoxImage.Information);
                     RefreshUserList();
                     ClearUserDetails();
@@ -106,6 +109,10 @@ namespace LogInScreen
                     RefreshUserList();
                     ClearUserDetails();
                     stkUserDetails.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    MessageBox.Show("Problem saving user record.", "Save to database", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             }
         }
@@ -182,6 +189,8 @@ namespace LogInScreen
             else
             {
                 MessageBox.Show("Problem deleting user record", "Delete User Record", MessageBoxButton.OK, MessageBoxImage.Error);
+                
+                
             }
         }
 
@@ -232,23 +241,6 @@ namespace LogInScreen
         {
             ClearUserDetails();
             stkUserDetails.Visibility = Visibility.Collapsed;
-        }
-
-        private void CreateLogEntry(string catagory, string description, int userID, string userName)
-        {
-            string comment = $"{description} by ";
-            Log log = new Log();
-            log.UserID = userID;
-            log.Catagory = catagory;
-            log.Description = comment;
-            log.Date = DateTime.Now;
-            SaveLog(log);           
-        }
-
-        private void SaveLog(Log log)
-        {
-            db.Entry(log).State = System.Data.Entity.EntityState.Added;
-            db.SaveChanges();
         }
     }
 }

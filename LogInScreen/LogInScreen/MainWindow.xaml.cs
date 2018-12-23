@@ -55,10 +55,10 @@ namespace LogInScreen
                 validatedUser = GetUserRecord(currentUser, currentPassword);
                 if (validatedUser.UserID > 0)
                 {
-                    CreateLogEntry("Login", "Logged in.", validatedUser.UserID, validatedUser.Username);
+                    CreateLogEntry("Login", "Logged in.", validatedUser.UserID, validatedUser.Username);                                      
                     Dashboard dashboard = new Dashboard();
                     dashboard.user = validatedUser;
-                    dashboard.Owner = this; //not sure I need this line?                                      
+                    dashboard.Owner = this; //not sure I need this line? 
                     dashboard.ShowDialog();
                     this.Hide();
                 }
@@ -74,7 +74,8 @@ namespace LogInScreen
             }
         }
 
-        //Method to create log entry.
+        // Method to create log entry.
+        // Public so that it can be called and used elsewhere.
         private void CreateLogEntry(string catagory, string description, int userID, string userName)
         {
             string comment = $"{description} username = {userName}";

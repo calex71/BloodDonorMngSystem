@@ -29,7 +29,6 @@ namespace LogInScreen
         enum AnalysisType
         {
             Summary,
-            Count,
             Statistics
         }
 
@@ -58,12 +57,8 @@ namespace LogInScreen
                 }
                 if (cboAnalysisType.SelectedIndex == 2)
                 {
-                    analysisType = AnalysisType.Count;
-                }
-                if (cboAnalysisType.SelectedIndex == 3)
-                {
                     analysisType = AnalysisType.Statistics;
-                }
+                }                
             }
         }
 
@@ -173,8 +168,16 @@ namespace LogInScreen
                 tbkAnalysisOutput.Text = output;
             }
 
-            // Add another for logs statistics once I've done more log categories
-            //Remove count from this and the xmal code as it's not required
+            if (analysisType == AnalysisType.Statistics && tableSelection == TableSelection.Log)
+            {            
+                foreach (var item in logList)
+                {
+                    recordCount++;
+                }
+                output = output + Environment.NewLine + $"Total log entries = {recordCount}" + Environment.NewLine;
+                tbkAnalysisOutput.Text = output;
+            }
+           
         }
     }
 }

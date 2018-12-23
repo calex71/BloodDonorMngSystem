@@ -5,32 +5,52 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LogInScreen"
              mc:Ignorable="d" 
+             Loaded="UserControl_Loaded"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="6*"/>
             <RowDefinition Height="4*"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
 
         <!--Row 0-->
-        <ScrollViewer Grid.Row="0" Grid.ColumnSpan="3" Margin="5">
-            <TextBlock Name="tbkAnalysisOutput" TextWrapping="Wrap" FontSize="14" ScrollViewer.VerticalScrollBarVisibility="Auto" Background="White"/>
+        <ScrollViewer Grid.Row="0" Margin="5">
+            <TextBlock Name="tbkDonorAnalysisOutput" TextWrapping="Wrap" FontSize="14" ScrollViewer.VerticalScrollBarVisibility="Auto" Background="White"/>
         </ScrollViewer>
-        
-        <!--Row 1-->
-        <Label Grid.Row="1" Grid.Column="0" Content="Please choose an analysis type" Background="White" VerticalAlignment="Top" HorizontalAlignment="Center" Height="26" Width="190"/>
-        <ComboBox Grid.Row="1" Grid.Column="1"  Name="cboAnalysis" VerticalAlignment="Top" HorizontalAlignment="Center" Height="26" Width="190">
-            <ComboBoxItem Content="Please select.."/>
-            <ComboBoxItem Content="Summary"/>
-            <ComboBoxItem Content="Statistics"/>
-        </ComboBox>
-        <Button Grid.Row="1" Grid.Column="2" Content="Analyse" HorizontalAlignment="Center" Background="White" VerticalAlignment="Top" Height="26" Width="190"/>
 
+        <!--Row 1-->
+        <StackPanel Grid.Row="1" VerticalAlignment="Top">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--Row 0 (Stack Panel)-->
+                <Label Grid.Row="0"  Grid.Column="0" Content="Please pick an analysis type." HorizontalAlignment="Center" FontSize="14" Background="White" Width="190" Margin="5"/>
+                <Label Grid.Row="0"  Grid.Column="1" Content="Please pick a database table." HorizontalAlignment="Center" FontSize="14" Background="White" Width="190" Margin="5"/>
+
+                <!--Row 1 (Stack Panel)-->
+                <ComboBox Name="cboDonorAnalysisType" Grid.Row="1" Grid.Column="0" Width="190" Height="26" Margin="5" VerticalContentAlignment="Center" SelectedIndex="0" SelectionChanged="CboDonorAnalysisType_SelectionChanged">
+                    <ComboBoxItem Content="Please select.."/>
+                    <ComboBoxItem Content="Summary"/>
+                    <ComboBoxItem Content="Statistics"/>
+                </ComboBox>
+
+                <ComboBox Name="cboChooseDonorTable" Grid.Row="1" Grid.Column="1" Width="190" Height="26" Margin="5" VerticalContentAlignment="Center" SelectedIndex="0" SelectionChanged="CboChooseDonorTable_SelectionChanged">
+                    <ComboBoxItem Content="Please select.."/>
+                    <ComboBoxItem Content="Donors"/>
+                </ComboBox>
+
+                <!--Row 2-->
+                <Button Name="btnAnalyseDonors" Grid.Row="2" Grid.Column="0" Height="26" Width="150" Content="Analyse" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="5" Click="BtnAnalyseDonors_Click"/>
+            </Grid>
+        </StackPanel>
 
     </Grid>
 </UserControl>

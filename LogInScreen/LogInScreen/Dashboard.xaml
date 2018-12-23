@@ -85,14 +85,16 @@
 
                     <MenuItem Name="mnuUserAnalysis" Header="_User Anylysis" Visibility="Collapsed" Click="MnuUserAnalysis_Click">
                         <MenuItem.Icon>
-                            <Image Source="images/search.png"/>
+                            <Image Source="images/alalysis1.png"/>
                         </MenuItem.Icon>
                     </MenuItem>
 
                     <Separator/>
 
-                    <MenuItem Name="mnuDonorAnalysis" Header="_Donor Analysis" Visibility="Visible">
-                        
+                    <MenuItem Name="mnuDonorAnalysis" Header="_Donor Analysis" Visibility="Visible" Click="MnuDonorAnalysis_Click">
+                        <MenuItem.Icon>
+                            <Image Source="images/analysis2.png"/>
+                        </MenuItem.Icon>
                     </MenuItem>
 
 

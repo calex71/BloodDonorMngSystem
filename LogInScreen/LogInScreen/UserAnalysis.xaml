@@ -39,7 +39,7 @@
                 <ComboBox Name="cboAnalysisType" Grid.Row="1" Grid.Column="0" Width="190" Height="26" Margin="5" VerticalContentAlignment="Center" SelectedIndex="0" SelectionChanged="CboAnalysisType_SelectionChanged">
                     <ComboBoxItem Content="Please select.."/>
                     <ComboBoxItem Content="Summary"/>
-                    <ComboBoxItem Content="Count"/>
+                    <!--<ComboBoxItem Content="Count"/>-->
                     <ComboBoxItem Content="Statistics"/>
                 </ComboBox>
 

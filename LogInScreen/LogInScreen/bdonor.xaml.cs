@@ -26,6 +26,10 @@ namespace LogInScreen
         List<Donor> donors = new List<Donor>();
         Donor selectedDonor = new Donor();
 
+        
+
+
+
         enum DBOperation
         {
             Add,
@@ -75,6 +79,7 @@ namespace LogInScreen
                 int saveSuccess = SaveDonor(donor);
                 if (saveSuccess == 1)
                 {
+
                     MessageBox.Show("Donor record saved", "Save to database", MessageBoxButton.OK, MessageBoxImage.Information);
                     RefreshDonorList();
                     ClearDonorListDetails();
@@ -95,7 +100,7 @@ namespace LogInScreen
                     donor.Town = tbxDonorTown.Text.Trim();
                     donor.County = tbxDonorCounty.Text.Trim();
                     donor.DonationDate = selectedDonor.DonationDate;
-                    donor.BloodGroupID = selectedDonor.BloodGroupID;
+                    donor.BloodGroupID = cboBloodGroupID.SelectedIndex;
                 }
                 int saveSuccess = db.SaveChanges();
                 if (saveSuccess == 1)
@@ -104,6 +109,10 @@ namespace LogInScreen
                     RefreshDonorList();
                     ClearDonorListDetails();
                     stkDonorDetails.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    MessageBox.Show("Problem saving donor record.", "Save to database", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             }
         }
@@ -187,6 +196,8 @@ namespace LogInScreen
             }            
         }
 
+
+        //This validates the data entered by the user to ensure it is consistent with what the database will take.
         public bool ValidateDonorInput()
         {
             bool validated = true;
