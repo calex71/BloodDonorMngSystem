@@ -32,8 +32,8 @@
             <!--Main Menu containing all of the other menu items-->
             <Menu Name="mnuMainMenu" HorizontalAlignment="Stretch">
                 
-                <!--Search menu-->
-                <MenuItem Header="_Search" Margin="10,0">
+                <!--Search menu not used-->
+                <MenuItem Header="_Search" Margin="10,0" Visibility="Collapsed">
 
                     <MenuItem Header="search for...">
                         <MenuItem.Icon>
